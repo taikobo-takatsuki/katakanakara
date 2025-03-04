@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # または master ブランチ
+      - master  # masterブランチに変更
 
 jobs:
   deploy:
