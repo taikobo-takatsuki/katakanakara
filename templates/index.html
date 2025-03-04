@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カタカナカラ - 言語名をカタカナに変換</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Meiryo', 'Hiragino Kaku Gothic Pro', sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 2rem;
+        }
+        .container {
+            max-width: 800px;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .card-header {
+            background-color: #6c757d;
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+            padding: 1rem;
+        }
+        .result-card {
+            display: none;
+            margin-top: 2rem;
+        }
+        .result-text {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 1rem 0;
+        }
+        .english-text {
+            font-size: 1.5rem;
+            color: #6c757d;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .language-list {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .language-item {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .language-item:hover {
+            background-color: #e9ecef;
+        }
+        .footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: #6c757d;
+        }
+        .nav-tabs {
+            margin-bottom: 1rem;
+        }
+        .confidence-badge {
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+        .detected-language {
+            font-weight: bold;
+            color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">カタカナカラ</h1>
+        <p class="text-center mb-4">言語名をカタカナに変換するサービスです</p>
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="language-tab" data-bs-toggle="tab" data-bs-target="#language-tab-pane" type="button" role="tab" aria-controls="language-tab-pane" aria-selected="true">言語名から変換</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="detect-tab" data-bs-toggle="tab" data-bs-target="#detect-tab-pane" type="button" role="tab" aria-controls="detect-tab-pane" aria-selected="false">テキストから言語検出</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            <!-- 言語名から変換タブ -->
+            <div class="tab-pane fade show active" id="language-tab-pane" role="tabpanel" aria-labelledby="language-tab" tabindex="0">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">言語を選択または入力してください</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="languageInput" class="form-label">言語名を入力</label>
+                                    <input type="text" class="form-control" id="languageInput" placeholder="例: 日本語">
+                                </div>
+                                <button id="convertBtn" class="btn btn-primary w-100">変換する</button>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">または言語リストから選択</label>
+                                <div class="language-list">
+                                    {% for language in languages %}
+                                    <div class="language-item" data-language="{{ language }}">{{ language }}</div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- テキストから言語検出タブ -->
+            <div class="tab-pane fade" id="detect-tab-pane" role="tabpanel" aria-labelledby="detect-tab" tabindex="0">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">テキストを入力して言語を検出</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="textInput" class="form-label">テキストを入力</label>
+                            <textarea class="form-control" id="textInput" rows="4" placeholder="例: Hello, world!"></textarea>
+                        </div>
+                        <button id="detectBtn" class="btn btn-primary">言語を検出する</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultCard" class="card result-card">
+            <div class="card-header">
+                <h5 class="mb-0">変換結果</h5>
+            </div>
+            <div class="card-body">
+                <div id="originalLanguage" class="text-center mb-2">元の言語: <span></span></div>
+                <div id="detectedInfo" class="text-center mb-2" style="display: none;">
+                    検出された言語: <span class="detected-language"></span>
+                    <span class="badge bg-info confidence-badge">信頼度: <span class="confidence-value"></span></span>
+                </div>
+                <div id="englishResult" class="english-text"></div>
+                <div id="katakanaResult" class="result-text"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2023 カタカナカラ</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageInput = document.getElementById('languageInput');
+            const textInput = document.getElementById('textInput');
+            const convertBtn = document.getElementById('convertBtn');
+            const detectBtn = document.getElementById('detectBtn');
+            const resultCard = document.getElementById('resultCard');
+            const originalLanguage = document.getElementById('originalLanguage').querySelector('span');
+            const detectedInfo = document.getElementById('detectedInfo');
+            const detectedLanguage = document.querySelector('.detected-language');
+            const confidenceValue = document.querySelector('.confidence-value');
+            const englishResult = document.getElementById('englishResult');
+            const katakanaResult = document.getElementById('katakanaResult');
+            const languageItems = document.querySelectorAll('.language-item');
+
+            // 言語リストからの選択
+            languageItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const language = this.getAttribute('data-language');
+                    languageInput.value = language;
+                    convertLanguage(language);
+                });
+            });
+
+            // 変換ボタンのクリック
+            convertBtn.addEventListener('click', function() {
+                const language = languageInput.value.trim();
+                if (language) {
+                    convertLanguage(language);
+                }
+            });
+
+            // 検出ボタンのクリック
+            detectBtn.addEventListener('click', function() {
+                const text = textInput.value.trim();
+                if (text) {
+                    detectLanguage(text);
+                }
+            });
+
+            // Enterキーでの変換
+            languageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const language = languageInput.value.trim();
+                    if (language) {
+                        convertLanguage(language);
+                    }
+                }
+            });
+
+            // 言語変換関数
+            function convertLanguage(language) {
+                fetch('/convert', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ language: language }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    originalLanguage.textContent = data.language;
+                    englishResult.textContent = data.english;
+                    katakanaResult.textContent = data.katakana;
+                    detectedInfo.style.display = 'none';
+                    resultCard.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('変換中にエラーが発生しました。');
+                });
+            }
+
+            // 言語検出関数
+            function detectLanguage(text) {
+                fetch('/detect', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ text: text }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.detected) {
+                        originalLanguage.textContent = text;
+                        detectedLanguage.textContent = data.language;
+                        confidenceValue.textContent = (data.confidence * 100).toFixed(0) + '%';
+                        englishResult.textContent = data.english;
+                        katakanaResult.textContent = data.katakana;
+                        detectedInfo.style.display = 'block';
+                    } else {
+                        originalLanguage.textContent = text;
+                        englishResult.textContent = '';
+                        katakanaResult.textContent = data.error;
+                        detectedInfo.style.display = 'none';
+                    }
+                    resultCard.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('言語検出中にエラーが発生しました。');
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

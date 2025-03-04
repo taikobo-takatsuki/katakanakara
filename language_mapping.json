@@ -1,0 +1,334 @@
+{
+    "アイスランド語": {
+        "english": "Icelandic",
+        "katakana": "アイスランディック"
+    },
+    "アゼルバイジャン語": {
+        "english": "Azerbaijani",
+        "katakana": "アゼルバイジャニ"
+    },
+    "アフリカーンス語": {
+        "english": "Afrikaans",
+        "katakana": "アフリカーンス"
+    },
+    "アムハラ語": {
+        "english": "Amharic",
+        "katakana": "アムハリック"
+    },
+    "アラビア語": {
+        "english": "Arabic",
+        "katakana": "アラビック"
+    },
+    "アルバニア語": {
+        "english": "Albanian",
+        "katakana": "アルバニアン"
+    },
+    "アルメニア語": {
+        "english": "Armenian",
+        "katakana": "アルメニアン"
+    },
+    "イタリア語": {
+        "english": "Italian",
+        "katakana": "イタリアン"
+    },
+    "インドネシア語": {
+        "english": "Indonesian",
+        "katakana": "インドネシアン"
+    },
+    "ウクライナ語": {
+        "english": "Ukrainian",
+        "katakana": "ウクライニアン"
+    },
+    "ウルドゥー語": {
+        "english": "Urdu",
+        "katakana": "ウルドゥー"
+    },
+    "ウズベク語": {
+        "english": "Uzbek",
+        "katakana": "ウズベク"
+    },
+    "エストニア語": {
+        "english": "Estonian",
+        "katakana": "エストニアン"
+    },
+    "オランダ語": {
+        "english": "Dutch",
+        "katakana": "ダッチ"
+    },
+    "カザフ語": {
+        "english": "Kazakh",
+        "katakana": "カザフ"
+    },
+    "カタルーニャ語": {
+        "english": "Catalan",
+        "katakana": "カタラン"
+    },
+    "ギリシャ語": {
+        "english": "Greek",
+        "katakana": "グリーク"
+    },
+    "クルド語": {
+        "english": "Kurdish",
+        "katakana": "クルディッシュ"
+    },
+    "クメール語": {
+        "english": "Khmer",
+        "katakana": "クメール"
+    },
+    "クロアチア語": {
+        "english": "Croatian",
+        "katakana": "クロアチアン"
+    },
+    "グジャラート語": {
+        "english": "Gujarati",
+        "katakana": "グジャラーティー"
+    },
+    "ケチュア語": {
+        "english": "Quechua",
+        "katakana": "ケチュア"
+    },
+    "ジョージア語": {
+        "english": "Georgian",
+        "katakana": "ジョージアン"
+    },
+    "シンハラ語": {
+        "english": "Sinhala",
+        "katakana": "シンハラ"
+    },
+    "スウェーデン語": {
+        "english": "Swedish",
+        "katakana": "スウェーディッシュ"
+    },
+    "ズールー語": {
+        "english": "Zulu",
+        "katakana": "ズールー"
+    },
+    "スペイン語": {
+        "english": "Spanish",
+        "katakana": "スパニッシュ"
+    },
+    "スロバキア語": {
+        "english": "Slovak",
+        "katakana": "スロバキアン"
+    },
+    "スロベニア語": {
+        "english": "Slovenian",
+        "katakana": "スロベニアン"
+    },
+    "スワヒリ語": {
+        "english": "Swahili",
+        "katakana": "スワヒリ"
+    },
+    "セルビア語": {
+        "english": "Serbian",
+        "katakana": "セルビアン"
+    },
+    "ゾンカ語": {
+        "english": "Dzongkha",
+        "katakana": "ゾンカ"
+    },
+    "ソマリ語": {
+        "english": "Somali",
+        "katakana": "ソマリ"
+    },
+    "タイ語": {
+        "english": "Thai",
+        "katakana": "タイ"
+    },
+    "タガログ語": {
+        "english": "Tagalog",
+        "katakana": "タガログ"
+    },
+    "タジク語": {
+        "english": "Tajik",
+        "katakana": "タジク"
+    },
+    "タタール語": {
+        "english": "Tatar",
+        "katakana": "タタール"
+    },
+    "タミル語": {
+        "english": "Tamil",
+        "katakana": "タミル"
+    },
+    "チェコ語": {
+        "english": "Czech",
+        "katakana": "チェコ"
+    },
+    "ディベヒ語": {
+        "english": "Dhivehi",
+        "katakana": "ディベヒ"
+    },
+    "テルグ語": {
+        "english": "Telugu",
+        "katakana": "テルグ"
+    },
+    "デンマーク語": {
+        "english": "Danish",
+        "katakana": "デニッシュ"
+    },
+    "ドイツ語": {
+        "english": "German",
+        "katakana": "ジャーマン"
+    },
+    "トクピシン語": {
+        "english": "Tok Pisin",
+        "katakana": "トクピシン"
+    },
+    "トルクメン語": {
+        "english": "Turkmen",
+        "katakana": "トルクメン"
+    },
+    "トルコ語": {
+        "english": "Turkish",
+        "katakana": "ターキッシュ"
+    },
+    "ネパール語": {
+        "english": "Nepali",
+        "katakana": "ネパリ"
+    },
+    "ノルウェー語": {
+        "english": "Norwegian",
+        "katakana": "ノルウェージアン"
+    },
+    "ハイチ・クレオール語": {
+        "english": "Haitian Creole",
+        "katakana": "ハイチアン・クレオール"
+    },
+    "ハウサ語": {
+        "english": "Hausa",
+        "katakana": "ハウサ"
+    },
+    "パンジャブ語": {
+        "english": "Punjabi",
+        "katakana": "パンジャビ"
+    },
+    "バシキール語": {
+        "english": "Bashkir",
+        "katakana": "バシキール"
+    },
+    "バシュトー語": {
+        "english": "Pashto",
+        "katakana": "パシュトー"
+    },
+    "ハンガリー語": {
+        "english": "Hungarian",
+        "katakana": "ハンガリアン"
+    },
+    "バングラ語": {
+        "english": "Bangla",
+        "katakana": "バングラ"
+    },
+    "ビルマ語（ミャンマー語）": {
+        "english": "Burmese",
+        "katakana": "バーミーズ"
+    },
+    "ヒンディー語": {
+        "english": "Hindi",
+        "katakana": "ヒンディー"
+    },
+    "フィンランド語": {
+        "english": "Finnish",
+        "katakana": "フィニッシュ"
+    },
+    "フランス語": {
+        "english": "French",
+        "katakana": "フレンチ"
+    },
+    "ブルガリア語": {
+        "english": "Bulgarian",
+        "katakana": "ブルガリアン"
+    },
+    "ベトナム語": {
+        "english": "Vietnamese",
+        "katakana": "ベトナミーズ"
+    },
+    "ベンガル語": {
+        "english": "Bengali",
+        "katakana": "ベンガリ"
+    },
+    "ペルシャ語": {
+        "english": "Persian",
+        "katakana": "ペルシアン"
+    },
+    "ヘブライ語": {
+        "english": "Hebrew",
+        "katakana": "ヘブライ"
+    },
+    "ポーランド語": {
+        "english": "Polish",
+        "katakana": "ポーリッシュ"
+    },
+    "ボスニア語": {
+        "english": "Bosnian",
+        "katakana": "ボズニアン"
+    },
+    "ポルトガル語": {
+        "english": "Portuguese",
+        "katakana": "ポルトギーズ"
+    },
+    "マケドニア語": {
+        "english": "Macedonian",
+        "katakana": "マケドニアン"
+    },
+    "マラーティー語": {
+        "english": "Marathi",
+        "katakana": "マラーティー"
+    },
+    "マレー語": {
+        "english": "Malay",
+        "katakana": "マレー"
+    },
+    "モーリシャス・クレオール語": {
+        "english": "Mauritian Creole",
+        "katakana": "モーリシャン・クレオール"
+    },
+    "モンゴル語": {
+        "english": "Mongolian",
+        "katakana": "モンゴリアン"
+    },
+    "モンテネグロ語": {
+        "english": "Montenegrin",
+        "katakana": "モンテネグリン"
+    },
+    "ヨルバ語": {
+        "english": "Yoruba",
+        "katakana": "ヨルバ"
+    },
+    "ラオス語": {
+        "english": "Lao",
+        "katakana": "ラオ"
+    },
+    "ラトビア語": {
+        "english": "Latvian",
+        "katakana": "ラトビアン"
+    },
+    "リトアニア語": {
+        "english": "Lithuanian",
+        "katakana": "リトアニアン"
+    },
+    "ルーマニア語": {
+        "english": "Romanian",
+        "katakana": "ルーマニアン"
+    },
+    "ロシア語": {
+        "english": "Russian",
+        "katakana": "ラシアン"
+    },
+    "中国語": {
+        "english": "Chinese",
+        "katakana": "チャイニーズ"
+    },
+    "日本語": {
+        "english": "Japanese",
+        "katakana": "ジャパニーズ"
+    },
+    "韓国語": {
+        "english": "Korean",
+        "katakana": "コリアン"
+    },
+    "英語": {
+        "english": "English",
+        "katakana": "イングリッシュ"
+    }
+}
